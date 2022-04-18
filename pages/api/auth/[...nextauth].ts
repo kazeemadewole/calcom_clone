@@ -17,6 +17,8 @@ export default NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: Record<"email" | "password", string> | undefined) {
+        console.log("i am here");
+
         if (!credentials) return null;
 
         const user = await prisma.user.findUnique({
